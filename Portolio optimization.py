@@ -153,6 +153,7 @@ class Module_Repacking:
                                 # Optimized_Returns= np.hstack((Optimized_Returns, Window))
 
                                 n = n + 1  # MOVE THIS COUNTER TO THE BACK OF THE LOOP!!!
+                        
                         os.chdir(r'C:\\CSVpricesA')
                         extension = 'csv'
                         all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
@@ -162,6 +163,7 @@ class Module_Repacking:
                         combined_csvA.to_csv("combined_csvA.csv", index=False, encoding='utf-8-sig')
                         FINAL = pd.read_csv(r'C:\\CSVpricesA\combined_csvA.csv', index_col=0)
                         print(FINAL)
+                        FINAL.portfolio_efficiency
                         FINAL = FINAL.pct_change()
                         Historical_Returns_total = FINAL.cumsum() * 10
                         Historical_Returns_total.plot(color='#5B064D')
